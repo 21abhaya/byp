@@ -274,5 +274,3 @@ dump.rdb
 byp/media/
 
 .pytest_cache/
-
-.github
