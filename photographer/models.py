@@ -1,6 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class Portfolio(models.Model):
+    images = models.ImageField(upload_to='portfolio/')
+
 class Photographer(models.Model):
     PHOTOGRAPHY_GENRE = [
     ('Adventure Photography', 'Adventure Photography'),
@@ -36,16 +38,14 @@ class Photographer(models.Model):
     phone_no = models.CharField(max_length=50, null=True)
     description = models.TextField(max_length=1000, null=True)
     category = models.CharField(max_length=1000, choices=PHOTOGRAPHY_GENRE, null=True)
-    portfolio = models.OneToOneField('')
+    portfolio = models.OneToOneField(Portfolio,on_delete=models.SET_NULL, null=True)
     rate = models.CharField(max_length=100, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now= True)
     is_active = models.BooleanField(default=True)
-    
+
     def __str__(self):
 
         full_name = "%s %s" % (self.first_name, self.last_name)
         return full_name
     
-class Portfolio(models.Model):
-    images = models.ImageField(upload_to='portfolio/')
