@@ -7,9 +7,11 @@ class Booking(models.Model):
     scheduled_by = models.OneToOneField(Customer, on_delete=models.SET_NULL, null=True, verbose_name="Client")
     scheduled_with = models.OneToOneField(Photographer, on_delete=models.SET_NULL, null=True, verbose_name="Photographer")
     scheduled_on = models.DateTimeField()
+    modified = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
+        ordering = ['created_on']
 
 class Interview(Booking):
     TYPE=[
