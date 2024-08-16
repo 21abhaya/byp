@@ -37,7 +37,7 @@ class Photographer(models.Model):
     email = models.EmailField(max_length=200, null=True)
     phone_no = models.CharField(max_length=50, null=True)
     description = models.TextField(max_length=1000, null=True)
-    category = models.CharField(max_length=1000, choices=PHOTOGRAPHY_GENRE, null=True)
+    category = models.CharField(max_length=100, choices=PHOTOGRAPHY_GENRE, null=True)
     portfolio = models.OneToOneField(Portfolio,on_delete=models.SET_NULL, null=True)
     rate = models.CharField(max_length=100, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
