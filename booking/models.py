@@ -21,4 +21,4 @@ class Interview(Booking):
     interview_type = models.CharField(max_length=35, choices=TYPE, default='In Person')
 
 class Photoshoot(Booking):
-    venue = models.CharField(max=255, null=True, help_text="Location of the photoshoot venue")
+    venue = models.CharField(max_length=255, null=True, help_text="Location of the photoshoot venue")
