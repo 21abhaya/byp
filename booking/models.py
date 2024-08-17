@@ -14,9 +14,9 @@ class Booking(models.Model):
         ordering = ['created_on']
 
 class Interview(Booking):
-    TYPE=[
-        ('In person','In person')
-        ('Virtual','Virtual')
+    TYPE = [
+        ('In person','In person'),
+        ('Virtual','Virtual'),
     ]
     interview_type = models.CharField(max_length=35, choices=TYPE, default='In Person')
 
