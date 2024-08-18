@@ -22,4 +22,5 @@ urlpatterns = [
     # path('', include('photographer.urls')),
     # path('', include('customer.urls')),
     # path('booking/', include('booking.urls')),
+    # path('', include('pages.urls')),
 ]
