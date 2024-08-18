@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'photographer',
     'customer',
     'booking',
+    'pages',
 ]
 
 MIDDLEWARE = [
