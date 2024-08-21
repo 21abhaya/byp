@@ -10,36 +10,50 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Offcanvas navbar large">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="true" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">Book Your Photographer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="navbar-collapse d-lg-flex collapse show" id="navbarsExample11" style="background-color: none;">
-          <a class="navbar-brand col-lg-3 me-0" href="#">Book Your Photographer</a>
-          <ul class="navbar-nav col-lg-6 justify-content-lg-center">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Pick your photographer!</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Blogs</a>
-            </li>
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li> -->
-          </ul>
-          <div class="text-end">
-            <button type="button" class="btn btn-warning me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbar2Label"></h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Photographers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Blogs</a>
+              </li>
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li> -->
+            </ul>
+            <!-- <form class="d-flex mt-3 mt-lg-0" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+            <div class="d-flex mt-3 mt-lg-0">
+              <button type="button" class="btn btn-outline-light me-2">Login</button>
+              <button type="button" class="btn btn-light me-2">Register</button>
+            </div>
           </div>
         </div>
       </div>
