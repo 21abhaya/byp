@@ -1,7 +1,14 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Portfolio(models.Model):
     images = models.ImageField(upload_to='portfolio/')
+
+class Ratings(models.Model):
+    rating = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0)])
+
+    def __str__(self):
+        return f"Rating: {self.rating}"
 
 class Photographer(models.Model):
     PHOTOGRAPHY_GENRE = [
@@ -38,7 +45,8 @@ class Photographer(models.Model):
     phone_no = models.CharField(max_length=50, null=True)
     description = models.TextField(max_length=1000, null=True)
     category = models.CharField(max_length=100, choices=PHOTOGRAPHY_GENRE, null=True)
-    portfolio = models.OneToOneField(Portfolio,on_delete=models.SET_NULL, null=True)
+    portfolio = models.OneToOneField(Portfolio, on_delete=models.SET_NULL, null=True)
+    rating = models.OneToOneField(Ratings, on_delete=models.SET_NULL, null=True)
     rate = models.CharField(max_length=100, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now= True)
