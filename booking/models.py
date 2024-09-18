@@ -13,6 +13,9 @@ class Booking(models.Model):
         abstract = True
         ordering = ['created_on']
 
+    def __str__(self):
+        return f"Booking on {self.scheduled_on} with {self.scheduled_with}"
+
 class Interview(Booking):
     TYPE = [
         ('In person','In person'),
@@ -20,5 +23,11 @@ class Interview(Booking):
     ]
     interview_type = models.CharField(max_length=35, choices=TYPE, default='In Person')
 
+    def __str__(self):
+        return f"{self.interview_type} Interview on {self.scheduled_on}"
+
 class Photoshoot(Booking):
     venue = models.CharField(max_length=255, null=True, help_text="Location of the photoshoot venue")
+
+    def __str__(self):
+        return f"Photoshoot at {self.venue} on {self.scheduled_on}"
