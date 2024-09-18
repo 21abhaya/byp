@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from customer.models import Customer
 
 class Portfolio(models.Model):
     images = models.ImageField(upload_to='portfolio/')
@@ -47,7 +48,7 @@ class Photographer(models.Model):
     category = models.CharField(max_length=100, choices=PHOTOGRAPHY_GENRE, null=True)
     portfolio = models.OneToOneField(Portfolio, on_delete=models.SET_NULL, null=True)
     rating = models.OneToOneField(Ratings, on_delete=models.SET_NULL, null=True)
-    rate = models.CharField(max_length=100, blank=True, null=True)
+    rate = models.CharField(max_length=100, blank=True, null=True, verbose_name='Fees')
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now= True)
     is_active = models.BooleanField(default=True)
@@ -57,3 +58,11 @@ class Photographer(models.Model):
         full_name = "%s %s" % (self.first_name, self.last_name)
         return full_name
     
+class Review(models.Model):
+    photographer = models.ForeignKey(Photographer, on_delete=models.CASCADE, null=True)
+    comments = models.TextField(max_length=1000, null=True)
+    created_by = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    created_on = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Comment: {self.comment} by {self.created_by} for {self.photographer}"
