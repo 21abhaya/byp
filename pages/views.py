@@ -14,3 +14,6 @@ class Blogs(TemplateView):
 
 class Login(TemplateView):
     template_name = 'frontend/login.html'
+
+class SignUp(TemplateView):
+    template_name = 'frontend/signup.html'
