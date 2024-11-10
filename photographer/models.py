@@ -1,15 +1,26 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.urls import reverse
+
 from customer.models import Customer
 
 class Portfolio(models.Model):
     images = models.ImageField(upload_to='portfolio/')
 
-class Ratings(models.Model):
+    def __str__(self):
+        return f"{self.images}"
+    
+    def get_absolute_url(self):
+        return reverse('portfolio_detail', args=[str(self.id)])
+
+class Rating(models.Model):
     rating = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0)])
 
+    class Meta:
+        ordering = ['rating']
+
     def __str__(self):
-        return f"Rating: {self.rating}"
+        return f"{self.rating}"
 
 class Photographer(models.Model):
     PHOTOGRAPHY_GENRE = [
@@ -46,17 +57,21 @@ class Photographer(models.Model):
     phone_no = models.CharField(max_length=50, null=True)
     description = models.TextField(max_length=1000, null=True)
     category = models.CharField(max_length=100, choices=PHOTOGRAPHY_GENRE, null=True)
-    portfolio = models.OneToOneField(Portfolio, on_delete=models.SET_NULL, null=True)
-    rating = models.OneToOneField(Ratings, on_delete=models.SET_NULL, null=True)
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.SET_NULL, null=True)
+    rating = models.ForeignKey(Rating, null=True, on_delete=models.SET_NULL)
     rate = models.CharField(max_length=100, blank=True, null=True, verbose_name='Fees')
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now= True)
     is_active = models.BooleanField(default=True)
-
+    is_deleted = models.BooleanField(default=False)
+    
     def __str__(self):
 
         full_name = "%s %s" % (self.first_name, self.last_name)
         return full_name
+    
+    def get_absolute_url(self):
+        return reverse('photographer_detail', args=[str(self.id)])
     
 class Review(models.Model):
     photographer = models.ForeignKey(Photographer, on_delete=models.CASCADE, null=True)
@@ -66,3 +81,6 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Comment: {self.comment} by {self.created_by} for {self.photographer}"
+    
+    def get_absolute_url(self):
+        return reverse('reiew_detail', args=[str(self.id)])
