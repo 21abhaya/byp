@@ -5,4 +5,8 @@
 
 <h1>Photographer List goes here.</h1>
 
+{% for photographer in object_list %}
+    <li>{{photographer.first_name}} {{photographer.email}} {{photographer.description}} {{photographer.email}} {{photographer.phone_no}} {{photographer.category}} {{photographer.rating}} {{photographer.rate}}</li>
+{% endfor %}
+
 {% endblock %}
