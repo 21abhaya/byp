@@ -1,9 +1,6 @@
 {% extends "frontend/homepage.html" %}
 {% load static %}
 
-{% block head %}
-<link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
-{% endblock %}
 {% block content %}
 
 <h1>Photographer List goes here.</h1>
@@ -11,21 +8,5 @@
 {% for photographer in object_list %}
     <li>{{photographer.first_name}} {{photographer.email}} {{photographer.description}} {{photographer.email}} {{photographer.phone_no}} {{photographer.category}} {{photographer.rating}} {{photographer.rate}}</li>
 {% endfor %}
-<div class="col-md-6 col-xl-3">
-        
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title ">Card title</h4>
-            <h6 class="card-subtitle font-14 text-muted">Support card subtitle</h6>
-        </div>
-        <img class="img-fluid" src="assets/images/small/img-4.jpg" alt="Card image cap">
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make
-                up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-    </div>
 
-</div>
 {% endblock %}
