@@ -6,7 +6,11 @@
 <h1>Photographer List goes here.</h1>
 
 {% for photographer in object_list %}
-    <li>{{photographer.first_name}} {{photographer.email}} {{photographer.description}} {{photographer.email}} {{photographer.phone_no}} {{photographer.category}} {{photographer.rating}} {{photographer.rate}}</li>
+<div class="card" style="display: grid; grid-template-columns: (3, 1fr); grid-gap: 10px; margin: 10px;">
+    <ul>
+        <li>{{photographer.first_name}} {{photographer.email}} {{photographer.description}} {{photographer.email}} {{photographer.phone_no}} {{photographer.category}} {{photographer.rating}} {{photographer.rate}}</li>
+    </ul>    
+</div>
 {% endfor %}
 
 {% endblock %}
