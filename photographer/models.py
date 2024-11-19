@@ -56,6 +56,7 @@ class Photographer(models.Model):
     email = models.EmailField(max_length=200, null=True)
     phone_no = models.CharField(max_length=50, null=True)
     description = models.TextField(max_length=1000, null=True)
+    profile_pic = models.ImageField(upload_to='profile_pic/', null=True)
     category = models.CharField(max_length=100, choices=PHOTOGRAPHY_GENRE, null=True)
     portfolio = models.ForeignKey(Portfolio, on_delete=models.SET_NULL, null=True)
     rating = models.ForeignKey(Rating, null=True, on_delete=models.SET_NULL)
