@@ -13,12 +13,15 @@
 
 {% block content %}
 
-<h1>Photographer List goes here.</h1>
+<div class="container">
+    <div class="row">
+        <h4>Photographers</h4>
+    </div>    
+</div>
+<div class="container">
 
-<div class="container" style="display: grid; grid-template-columns: (3, 1fr); grid-gap: 10px;">
-{% for photographer in object_list %}
-    <div class="col-md-6 col-xl-3">
-            
+    <div class="row" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
+        {% for photographer in object_list %}            
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title ">{{photographer.first_name}} {{photographer.last_name}}</h4>
@@ -33,9 +36,12 @@
                 <a href="#" class="card-link">{{photographer.rate}}</a>
             </div>
         </div>
-
+        {% endfor %}
     </div><!-- end col -->
+    
 </div>
-{% endfor %}
+
+
+
 
 {% endblock %}
