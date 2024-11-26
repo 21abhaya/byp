@@ -4,6 +4,7 @@ from .models import Photographer, Portfolio, Rating
 class PhotographerListView(ListView):
     model = Photographer
     template_name = 'photographer/photographer_list.html'
+    paginate_by = 12
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
