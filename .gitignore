@@ -11,3 +11,5 @@ media/
 #  # Ignores all pycache directories
 __pycache__/
 
+# Ignores .pyc, .pyo and .pyd files
+*.py[cod]       
