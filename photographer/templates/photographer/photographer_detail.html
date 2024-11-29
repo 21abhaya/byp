@@ -1,0 +1,46 @@
+{% extends "frontend/homepage.html" %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+
+        <h4 class="card-title">Lightbox gallery</h4>
+        <p class="card-title-desc">In this example lazy-loading of images is enabled for the next image based on move direction. </p>
+
+        <div class="popup-gallery">
+            <a class="float-start" href="assets/images/small/img-1.jpg" title="Project 1">
+                <div class="img-fluid">
+                    <img src="assets/images/small/img-1.jpg" alt="img-1" width="120">
+                </div>
+            </a>
+            <a class="float-start" href="assets/images/small/img-2.jpg" title="Project 2">
+                <div class="img-fluid">
+                    <img src="assets/images/small/img-2.jpg" alt="img-2" width="120">
+                </div>
+            </a>
+            <a class="float-start" href="assets/images/small/img-3.jpg" title="Project 3">
+                <div class="img-fluid">
+                    <img src="assets/images/small/img-3.jpg" alt="img-3" width="120">
+                </div>
+            </a>
+            <a class="float-start" href="assets/images/small/img-4.jpg" title="Project 4">
+                <div class="img-fluid">
+                    <img src="assets/images/small/img-4.jpg" alt="img-4" width="120">
+                </div>
+            </a>
+            <a class="float-start" href="assets/images/small/img-5.jpg" title="Project 5">
+                <div class="img-fluid">
+                    <img src="assets/images/small/img-5.jpg" alt="img-5" width="120">
+                </div>
+            </a>
+            <a class="float-start" href="assets/images/small/img-6.jpg" title="Project 6">
+                <div class="img-fluid">
+                    <img src="assets/images/small/img-6.jpg" alt="img-6" width="120">
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
