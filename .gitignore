@@ -7,3 +7,7 @@ env/
 
 # Ignore the media folder
 media/
+
+#  # Ignores all pycache directories
+__pycache__/
+
