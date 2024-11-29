@@ -26,4 +26,8 @@ class PhotographerListView(ListView):
         context['search_term'] = self.request.GET.get('search')
         return context
     
-    
+
+class PhotographerDetailView(DetailView):
+    model = Photographer
+    template_name = "photographer/photographer_detail.html"
+ 
