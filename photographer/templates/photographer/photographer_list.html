@@ -1,7 +1,6 @@
 {% extends "frontend/homepage.html" %}
 {% load static %}
 
-
         <link rel="shortcut icon" href="assets/images/favicon.ico">
     
         <!-- Bootstrap Css -->
@@ -22,6 +21,11 @@
             <input class="form-control search mr-sm-2 w-25" type="search" placeholder="Search your photographer" {% if search_term %} value= {{ search_term }} {% endif %} name='search'>
             <button class="btn btn-outline-secondary" type="submit" style="margin-left: 3px; border: none;"><i class="bi bi-search">Search</i> </button>
         </div> 
+        {% if no_results %}
+            <div class="alert alert-info justify-content-center w-25">
+                {{ no_results }}
+            </div>
+        {% endif %}            
     </form>
 </div>
 
