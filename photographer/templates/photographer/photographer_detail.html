@@ -2,45 +2,48 @@
 {% load static %}
 
 {% block content %}
-<div class="card">
-    <div class="card-body">
-
-        <h4 class="card-title">Lightbox gallery</h4>
-        <p class="card-title-desc">In this example lazy-loading of images is enabled for the next image based on move direction. </p>
-
-        <div class="popup-gallery">
-            <a class="float-start" href="assets/images/small/img-1.jpg" title="Project 1">
-                <div class="img-fluid">
-                    <img src="assets/images/small/img-1.jpg" alt="img-1" width="120">
-                </div>
-            </a>
-            <a class="float-start" href="assets/images/small/img-2.jpg" title="Project 2">
-                <div class="img-fluid">
-                    <img src="assets/images/small/img-2.jpg" alt="img-2" width="120">
-                </div>
-            </a>
-            <a class="float-start" href="assets/images/small/img-3.jpg" title="Project 3">
-                <div class="img-fluid">
-                    <img src="assets/images/small/img-3.jpg" alt="img-3" width="120">
-                </div>
-            </a>
-            <a class="float-start" href="assets/images/small/img-4.jpg" title="Project 4">
-                <div class="img-fluid">
-                    <img src="assets/images/small/img-4.jpg" alt="img-4" width="120">
-                </div>
-            </a>
-            <a class="float-start" href="assets/images/small/img-5.jpg" title="Project 5">
-                <div class="img-fluid">
-                    <img src="assets/images/small/img-5.jpg" alt="img-5" width="120">
-                </div>
-            </a>
-            <a class="float-start" href="assets/images/small/img-6.jpg" title="Project 6">
-                <div class="img-fluid">
-                    <img src="assets/images/small/img-6.jpg" alt="img-6" width="120">
-                </div>
-            </a>
+<main>
+<div class="container my-5">
+    <section class="row p-4 pb-0 pe-lg-0 pt-lg-5 justify-content-center rounded-3 border shadow-lg">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer}}</font></font></h1>
+          <div class="mb-2">
+            <img class="rounded-circle" src="{photographer.profile_pic.url}" alt="{{photographer.first_name}}'s pfp">
+          </div>
+            <p class="lead text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer.description}}</font></font></p>
+          <p>
+            <p class="badge bg-light text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer.email}}</font></font></p>
+            <p class="badge bg-light text-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer.phone_no}}</font></font></p>
+            <p class="badge bg-light text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer.rating}}</font></font></p>
+            <p class="badge bg-light text-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer.rate}}</font></font></p>
+          </p>
         </div>
-
+      </div>
+    </section>
+</div>  
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+  
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">صورة مصغرة</text></svg>
+              <div class="card-body">
+                <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This is a wider card with supporting text below as a natural introduction to additional content. This content is a little longer.</font></font></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Show</font></font></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Modification</font></font></button>
+                  </div>
+                  <small class="text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9 minutes</font></font></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  
+  </main>
 {% endblock %}
