@@ -38,7 +38,7 @@
         {% for photographer in photographers %}            
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title ">{{photographer.first_name}} {{photographer.last_name}}</h4>
+                <a href="{% url 'photographer:photographer-detail' photographer.id %}"><h4 class="card-title ">{{photographer.first_name}} {{photographer.last_name}}</h4></a>
                 <h6 class="card-subtitle font-14 text-muted">{{photographer.category}}</h6>
             </div>
             <img class="img-fluid" src="{photographer.profile_pic.url}" alt="{{photographer.first_name}}'s pfp">
