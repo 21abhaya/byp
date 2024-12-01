@@ -22,9 +22,11 @@
             <button class="btn btn-outline-secondary" type="submit" style="margin-left: 3px; border: none;"><i class="bi bi-search">Search</i> </button>
         </div> 
         {% if no_results %}
-            <div class="alert alert-info justify-content-center w-25">
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-info w-25">
                 {{ no_results }}
             </div>
+        </div>
         {% endif %}            
     </form>
 </div>

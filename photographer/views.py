@@ -31,6 +31,7 @@ class PhotographerListView(ListView):
             ) 
             if not queryset.exists():
                 context['no_results']=f'No match found for "{search_term}"'  
+        context['search_term']=search_term
         return context
     
 
