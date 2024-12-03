@@ -4,14 +4,14 @@ from django.urls import reverse
 
 from customer.models import Customer
 
-class Portfolio(models.Model):
-    images = models.ImageField(upload_to='portfolio/')
+# class Portfolio(models.Model):
+#     images = models.ImageField(upload_to='portfolio/')
 
-    def __str__(self):
-        return f"{self.images}"
+#     def __str__(self):
+#         return f"{self.images}"
     
-    def get_absolute_url(self):
-        return reverse('portfolio_detail', args=[str(self.id)])
+#     def get_absolute_url(self):
+#         return reverse('portfolio_detail', args=[str(self.id)])
 
 class Rating(models.Model):
     rating = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0)])
@@ -58,7 +58,7 @@ class Photographer(models.Model):
     description = models.TextField(max_length=1000, null=True)
     profile_pic = models.ImageField(upload_to='profile_pic/', null=True)
     category = models.CharField(max_length=100, choices=PHOTOGRAPHY_GENRE, null=True)
-    portfolio = models.ForeignKey(Portfolio, on_delete=models.SET_NULL, null=True)
+    # portfolio = models.ForeignKey(Portfolio, on_delete=models.SET_NULL, null=True)
     rating = models.ForeignKey(Rating, null=True, on_delete=models.SET_NULL)
     rate = models.CharField(max_length=100, blank=True, null=True, verbose_name='Fees')
     created_on = models.DateTimeField(auto_now_add=True)
@@ -73,7 +73,23 @@ class Photographer(models.Model):
     
     def get_absolute_url(self):
         return reverse('photographer_detail', args=[str(self.id)])
-    
+
+
+def upload_to_directory(instance, filename):
+
+    if instance.photographer:
+        return f'portfolio/{instance.photographer}/{filename}'
+    else:
+        return f'portfolio/unknown photographers/{filename}'
+
+
+class Portfolio(models.Model):
+    photographer = models.ForeignKey(Photographer, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to=upload_to_directory, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.photographer}'s portfolio" if self.photographer else "Unassigned Portfolio"
+
 class Review(models.Model):
     photographer = models.ForeignKey(Photographer, on_delete=models.CASCADE, null=True)
     comments = models.TextField(max_length=1000, null=True)
