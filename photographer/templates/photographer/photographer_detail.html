@@ -4,14 +4,14 @@
 {% block content %}
 <main>
 <div class="container my-5">
-    <section class="row p-4 pb-0 pe-lg-0 pt-lg-5 justify-content-center rounded-3 border shadow-lg">
+    <section class="row p-4 pb-4 pe-lg-0 pt-lg-4 justify-content-center rounded-3 border shadow-lg">
       <div class="row py-lg-5">
-        <div class="col-4 mx-auto">
+        <div class="col-3 mx-auto">
           <div class="mb-2">
-            <img class="rounded" src="{{ photographer.profile_pic.url }}" alt="{{photographer.first_name}}'s pfp" style="width: 100px; height: 100px; object-fit: cover; margin: 10px;">
+            <img class="rounded" src="{{ photographer.profile_pic.url }}" alt="{{photographer.first_name}}'s pfp" style="width: 250px; height: 250px; object-fit: cover; margin: 10px;">
           </div>
         </div>
-        <div class="col-8 mx-auto">
+        <div class="col-9 mx-auto">
           <h1 class="fw-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer}}</font></font></h1>
             <p class="lead text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer.description}}</font></font></p>
           <p>
