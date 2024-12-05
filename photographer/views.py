@@ -38,8 +38,13 @@ class PhotographerListView(ListView):
 class PhotographerDetailView(DetailView):
     model = Photographer
     template_name = "photographer/photographer_detail.html"
-    context_object_name = 'photographer'
  
-    # def get_context_data(self, **kwargs):
-    #     context=super().get_context_data(**kwargs)
-    #     context['portfolio'] = Portfolio.objects.all()
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        photographer = self.get_object()
+        photographer_portfolio = Portfolio.objects.filter(photographer=photographer)
+        if photographer_portfolio:
+            context['portfolio'] = photographer_portfolio
+        else:
+            context['no_portfolio'] = f"Portfolio not available for {photographer}."
+        return context

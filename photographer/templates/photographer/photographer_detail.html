@@ -26,25 +26,30 @@
 </div>  
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
-  
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {% comment %} {% for portfolio in portfolios %} {% endcomment %}
-            <div class="col">
-              <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src=" " role="img" aria-label="Placeholder: thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">صورة مصغرة</text></svg>
-                <div class="card-body">
-                  <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This is a wider card with supporting text below as a natural introduction to additional content. This content is a little longer.</font></font></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Show</font></font></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Modification</font></font></button>
-                    </div>
-                    <small class="text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9 minutes</font></font></small>
+            {% if portfolio %}  
+              {% for x in portfolio %}
+                <div class="col">
+                  <div class="card shadow">
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ x.image.url }}" role="img" aria-label="Placeholder: thumbnail" preserveAspectRatio="xMidYMid slice">
+                    {% comment %} <div class="card-body">
+                      <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This is a wider card with supporting text below as a natural introduction to additional content. This content is a little longer.</font></font></p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Show</font></font></button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Modification</font></font></button>
+                        </div>
+                        <small class="text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9 minutes</font></font></small>
+                      </div>
+                    </div> {% endcomment %}
                   </div>
                 </div>
+              {% endfor %}
+            {% elif no_portfolio %}
+              <div class="alert alert-warning w-25" role="alert">
+                {{no_portfolio}}
               </div>
-            {% comment %} {% endfor %} {% endcomment %}
-            </div>
+            {% endif %}
         </div>
       </div>
     </div>
