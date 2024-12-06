@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.contrib.auth.views import LoginView
 
 class Homepage(TemplateView):
     template_name = 'frontend/homepage.html'
@@ -12,7 +13,7 @@ class About(TemplateView):
 class Blogs(TemplateView):
     template_name = 'frontend/blogs.html'
 
-class Login(TemplateView):
+class Login(LoginView):
     template_name = 'frontend/login.html'
 
 class SignUp(TemplateView):
