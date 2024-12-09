@@ -63,6 +63,7 @@
     $(document).ready(function() {
         $(".portfolio-image-thumbnail").on("click", function() {
             var imageUrl = $(this).data("image");
+            {{ imageUrl|pprint }}
             $("#imageForModal").attr("src", imageUrl);
         });
     });
