@@ -31,7 +31,7 @@
               {% for x in portfolio %}
                 <div class="col">
                   <div class="card shadow">
-                    <img class="bd-placeholder-img card-img-top portfolio-image-thumbnail" width="100%" height="225" src="{{ x.image.url }}" role="img" data-bs-toggle="modal" data-bs-target="#imageViewModal" data-image="{{ x.image.url }}" preserveAspectRatio="xMidYMid slice">
+                    <img class="bd-placeholder-img card-img-top portfolio-image-thumbnail" width="100%" height="225" src="{{ x.image.url }}" role="img" data-bs-toggle="modal" data-bs-target="#imageViewModal" data-image="{{ x.image.url }}" preserveAspectRatio="xMidYMid slice" style="cursor: pointer;">
                   </div>
                 </div>
               {% endfor %}
@@ -59,13 +59,15 @@
   </main>
 {% endblock %}
 {% block javascript %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function() {
-        $(".portfolio-image-thumbnail").on("click", function() {
+        $(".portfolio-image-thumbnail").on("click", function() {  
             var imageUrl = $(this).data("image");
-            {{ imageUrl|pprint }}
             $("#imageForModal").attr("src", imageUrl);
+            console.log("the passed image url is:", imageUrl);
         });
     });
+    
   </script>
 {% endblock javascript %}
