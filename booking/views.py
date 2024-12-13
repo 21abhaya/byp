@@ -3,4 +3,6 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from .models import Interview, Photoshoot, Booking
 
 
-
+class BookingCreateView(CreateView):
+    model = Booking
+    
