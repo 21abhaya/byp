@@ -3,6 +3,8 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from .models import Interview, Photoshoot, Booking
 
 
-class BookingCreateView(CreateView):
-    model = Booking
+class InterviewCreateView(CreateView):
+    model = Interview
+    template_name = 'booking/create_booking.html'
+    fields =['scheduled_on']
     
