@@ -20,6 +20,10 @@
             <p class="badge bg-light text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer.rating}}</font></font></p>
             <p class="badge bg-light text-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{photographer.rate}}/hr</font></font></p>
           </p>
+          <div class="d-block">
+            <a href="{% url 'booking:interview-create' %}" class="btn btn-success btn-sm">Book an Interview</a>
+            <a href="" class="btn btn-warning btn-sm">Book a Session</a>
+          </div>
         </div>
       </div>
     </section>
