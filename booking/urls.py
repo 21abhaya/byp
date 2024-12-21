@@ -4,5 +4,5 @@ from .views import InterviewCreateView
 app_name = 'booking'
 
 urlpatterns =[
-    path('create-interview/', InterviewCreateView.as_view(), name='interview-create'),
+    path('create-interview/<int:pk>/', InterviewCreateView.as_view(), name='interview-create'),
 ]
