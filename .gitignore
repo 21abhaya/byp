@@ -8,7 +8,7 @@ env/
 # Ignore the media folder
 media/
 
-#  # Ignores all pycache directories
+# Ignores all pycache directories
 __pycache__/
 
 # Ignores .pyc, .pyo and .pyd files
