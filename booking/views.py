@@ -6,5 +6,3 @@ from .models import Photographer, Interview, Photoshoot, Booking
 class InterviewCreateView(CreateView):
     model = Interview
     template_name = 'booking/create_booking.html'
-    fields =['scheduled_on']
-    context_object_name = 'booking'
