@@ -1,6 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
-from .models import Photographer, Interview, Photoshoot, Booking
+from django.views.generic import CreateView
+from .models import Interview
 from .forms import InterviewCreateForm
 
 class InterviewCreateView(CreateView):
