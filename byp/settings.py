@@ -14,7 +14,10 @@ from pathlib import Path
 import environ
 import os
 
-env = environ.Env()
+env = environ.Env(
+    DEBUG=(bool, False),
+    DB_PORT=(int, 3306)
+)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
